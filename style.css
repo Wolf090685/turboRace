@@ -24,7 +24,8 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+    line-height: 1;
+    overflow: hidden;
 }
 ol, ul {
 	list-style: none;
@@ -52,8 +53,6 @@ table {
     width: 50px;
     height: 100px;
     background: transparent url(./image/car.png) center / cover no-repeat;
-    left: 125px;
-    bottom: 10px;
 }
 
 .gameArea {
@@ -73,4 +72,35 @@ table {
     background-color: #fff;
 }
 
+.start {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 10px;
+    border: 2px solid #333;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #0e1d61;
+    cursor: pointer;
+    z-index: 10;
+}
 
+.score {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 10px;
+    border: 2px solid #333;
+    font-family: sans-serif;
+    font-weight: normal;
+    text-align: center;
+    color: rgb(255, 237, 71);
+    background-color: #212c61;
+    z-index: 10;
+}

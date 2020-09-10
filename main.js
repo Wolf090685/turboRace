@@ -9,8 +9,8 @@ car.classList.add('car');
 const settings = {
     start: false,
     score: 0,
-    speed: 3,
-    traffic: 4
+    speed: 10,
+    traffic: 8
 };
 
 const keys = {
@@ -29,6 +29,7 @@ function getQuantityElements(heightElement) {
 
 function startGame () { 
     start.classList.add('hide');
+    gameArea.innerHTML = '';
 
     // добавление линий
     for (let i = 0; i < getQuantityElements(100); i++) {
@@ -50,8 +51,14 @@ function startGame () {
         gameArea.appendChild(enemy);
     }
 
-    settings.start = true;    
+    settings.start = true;
+    settings.score = 0;    
     gameArea.appendChild(car);
+
+    car.style.left = '125px';
+    car.style.bottom = '10px';
+    car.style.top = 'auto';
+
     settings.x = car.offsetLeft;
     settings.y = car.offsetTop;
     requestAnimationFrame(playGame);
@@ -59,6 +66,8 @@ function startGame () {
 
 function playGame () {    
     if (settings.start) {
+        settings.score += settings.speed;
+        score.innerHTML = 'Score: <br/>' + settings.score;
         moveRoad();
         moveEnemy();
         if (keys.ArrowLeft && settings.x > 0) {
@@ -108,6 +117,19 @@ function moveRoad () {
 function moveEnemy() {
     const enemyCars = document.querySelectorAll('.enemy');
     enemyCars.forEach( item => { 
+        let carRect = car.getBoundingClientRect();
+        let enemyRect = item.getBoundingClientRect();
+
+        if (carRect.top <= enemyRect.bottom &&
+            carRect.right >= enemyRect.left &&
+            carRect.left <= enemyRect.right &&
+            carRect.bottom >= enemyRect.top) {
+            settings.start = false;    
+            console.warn('boom!');
+            start.classList.remove('hide');
+            start.style.top = score.offsetHeight + 'px';
+        }
+
         item.y += settings.speed / 2;
         item.style.top = item.y + 'px';
 
