@@ -1,0 +1,27 @@
+{
+  "name": "turborace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wolf090685/turboRace.git"
+  },
+  "author": "Alex Dumarenok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wolf090685/turboRace/issues"
+  },
+  "homepage": "https://github.com/Wolf090685/turboRace#readme",
+  "devDependencies": {
+    "electron": "^10.1.1",
+    "electron-packager": "^15.1.0"
+  },
+  "dependencies": {
+    "path": "^0.12.7",
+    "url": "^0.11.0"
+  }
+}
